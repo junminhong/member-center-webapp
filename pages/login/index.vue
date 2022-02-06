@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="6">
         <v-img
-          height="100%"
+          max-height="100%"
           lazy-src="https://picsum.photos/id/11/10/6"
           src="/imgs/singin.jpg"
         ></v-img>
