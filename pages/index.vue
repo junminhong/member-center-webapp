@@ -161,12 +161,15 @@ export default {
     }
   },
   mounted() {
-    this.getImage()
+    // this.getImage()
   },
   methods: {
     getImage() {
       this.$axios
-        .$post('http://127.0.0.1:9010/api/v1/member/upload-mug-shot')
+        .$post('/api/v1/member/login', {
+          email: 'zuw10591@mzico.com',
+          password: 'zuw10592',
+        })
         .then((result) => {
           this.testImage = result.pathname
           console.log(result.pathname)

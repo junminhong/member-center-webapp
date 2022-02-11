@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - member-center-webapp',
-    title: 'member-center-webapp',
+    titleTemplate: '%s - 會員中心',
+    title: '原子世界',
     htmlAttrs: {
       lang: 'en',
     },
@@ -41,10 +41,18 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/proxy', 'cookie-universal-nuxt'],
 
   axios: {
-    // proxy: true
+    proxy: true
+  },
+  proxy: {
+    '/api/v1/member': {
+      target: 'https://member-center.jmh-su.com',
+    },
+    '/api/v1/auth': {
+      target: 'https://member-center.jmh-su.com',
+    }
   },
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -67,4 +75,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  server: {
+    port: 9210,
+    host: '0.0.0.0' // default: localhost
+  },
 }
